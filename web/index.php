@@ -2,11 +2,10 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-$app = new Silex\Application();
+$app = require __DIR__.'/../src/app.php';
 
-$app->mount('/', include '../src/main.php');
-$app->mount('/blog', include '../src/main.php');
-$app->mount('/resume', include '../src/resume.php');
+require __DIR__.'/../src/config/prod.php';
 
+require __DIR__.'/../src/controllers.php';
 
 $app->run();
