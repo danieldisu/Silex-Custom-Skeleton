@@ -13,19 +13,6 @@ $app->get('/', function () use ($app) {
 })
 ->bind('homepage');
 
-$app->get('/blog', function() use($app){
-	$response = new RedirectResponse('http://www.danieldisu.es/blog');
-	return $response;
-})->bind('blog');
-
-$app->get('/resume', function() use($app){
-	return $app['twig']->render('resume.html.twig',array());
-})->bind('resume');
-
-$app->get('/about', function() use($app){
-	return $app['twig']->render('about.html.twig',array());
-})->bind('about');
-
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {
 	return;
